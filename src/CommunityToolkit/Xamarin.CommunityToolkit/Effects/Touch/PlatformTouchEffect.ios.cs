@@ -284,6 +284,9 @@ namespace Xamarin.CommunityToolkit.iOS.Effects
 			if (recognizer.View.IsDescendantOfView(touch.View))
 				return true;
 
+			if (recognizer.View is IVisualElementRenderer)
+				return true;
+
 			if (recognizer.View is not IVisualNativeElementRenderer elementRenderer ||
 				elementRenderer.Control == null)
 				return false;
